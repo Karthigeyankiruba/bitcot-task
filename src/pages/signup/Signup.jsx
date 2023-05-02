@@ -72,9 +72,7 @@ const Signup = () => {
                             value={values.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={
-                              errors.email && touched.email ? "is-invalid" : ""
-                            }
+                            className="form-control input_modify"
                             style={
                               errors.email && touched.email
                                 ? { borderColor: "red" }
@@ -102,11 +100,7 @@ const Signup = () => {
                             value={values.password}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={
-                              errors.password && touched.password
-                                ? "is-invalid"
-                                : ""
-                            }
+                            className="form-control input_modify"
                             style={
                               errors.password && touched.password
                                 ? { borderColor: "red" }
@@ -134,11 +128,7 @@ const Signup = () => {
                             value={values.confirmPassword}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={
-                              errors.confirmPassword && touched.confirmPassword
-                                ? "is-invalid"
-                                : ""
-                            }
+                            className="form-control input_modify"
                             style={
                               errors.confirmPassword && touched.confirmPassword
                                 ? { borderColor: "red" }
