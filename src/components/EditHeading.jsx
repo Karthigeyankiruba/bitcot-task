@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EditHeading = () => {
+const EditHeading = ({ title }) => {
   return (
     <>
       <div className="filter_wrapper  d-block d-sm-none">
@@ -26,7 +26,7 @@ const EditHeading = () => {
       <div className="card nav_pills_card nav_pills_card_new">
         <div className="card-body">
           <div className="heading_wrapper heading_right_content">
-            <h1 className="head_title">Edit Product</h1>
+            <h1 className="head_title">{title}</h1>
             <div className="btn_wrapper">
               <Link
                 to={"/products"}

@@ -69,9 +69,7 @@ const EditGeneral = () => {
                 value={values.productName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className={
-                  errors.productName && touched.productName ? "error" : ""
-                }
+                className="form-control"
                 style={
                   errors.productName && touched.productName
                     ? { borderColor: "red" }
@@ -132,7 +130,7 @@ const EditGeneral = () => {
                     value={values.price}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.price && touched.price ? "error" : ""}
+                    className="form-control"
                     style={
                       errors.price && touched.price
                         ? { borderColor: "red" }
@@ -158,9 +156,7 @@ const EditGeneral = () => {
                     value={values.comparePrice}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={
-                      errors.comparePrice && touched.comparePrice ? "error" : ""
-                    }
+                    className="form-control"
                     style={
                       errors.comparePrice && touched.comparePrice
                         ? { borderColor: "red" }
@@ -188,9 +184,7 @@ const EditGeneral = () => {
                     value={values.costperItem}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={
-                      errors.costperItem && touched.costperItem ? "error" : ""
-                    }
+                    className="form-control"
                     style={
                       errors.costperItem && touched.costperItem
                         ? { borderColor: "red" }
@@ -216,7 +210,7 @@ const EditGeneral = () => {
                     value={values.taxRate}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.taxRate && touched.taxRate ? "error" : ""}
+                    className="form-control"
                     style={
                       errors.taxRate && touched.taxRate
                         ? { borderColor: "red" }

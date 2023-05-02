@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../assets/images/thumbnails/Logo.svg";
 import { useFormik } from "formik";
 import { signupSchema } from "../../schemas";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signupUser } from "../../redux/signup/signupUser";
 
@@ -152,7 +152,7 @@ const Signup = () => {
                           </button>
                         </div>
                         <div className="already">
-                          <a href="login.html">Already have Account</a>
+                          <Link to={"/login"}>Already have Account</Link>
                         </div>
                       </div>
                     </form>

@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../assets/images/thumbnails/Logo.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../../schemas";
 import { useDispatch } from "react-redux";
@@ -60,9 +60,9 @@ const Login = () => {
                         <img src={Logo} alt="logo" />
                         <h6>
                           Don’t have an account yet?
-                          <a className="signUpSpan" href="signup.html">
+                          <Link to={"/"} className="signUpSpan">
                             Sign Up
-                          </a>
+                          </Link>
                         </h6>
                       </div>
                       <form onSubmit={handleSubmit} autoComplete="">

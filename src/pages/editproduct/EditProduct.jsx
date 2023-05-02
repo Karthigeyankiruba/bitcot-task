@@ -6,7 +6,7 @@ import EditGeneral from "../../components/EditGeneral";
 import EditVariants from "../../components/EditVariants";
 import Footer from "../../components/Footer";
 
-const Addproduct = ({ title }) => {
+const EditProduct = ({ title }) => {
   return (
     <>
       <Topbar />
@@ -29,4 +29,4 @@ const Addproduct = ({ title }) => {
   );
 };
 
-export default Addproduct;
+export default EditProduct;

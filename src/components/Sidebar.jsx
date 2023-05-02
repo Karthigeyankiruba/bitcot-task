@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../assets/images/icons/Path.svg";
 const Sidebar = () => {
   return (
     <aside className="sidebar-wrapper open custom-scrollbar wow fadeInLeft">
@@ -8,7 +8,7 @@ const Sidebar = () => {
         <ul className="sidebar-list">
           <li className="sidebar-list-item has-subnav active open" id="listTem">
             <button className="sidebar-link" id="pro_toggle">
-              <i className="fa-sharp fa-light fa-chart-simple"></i>
+              <img src={logo} alt="Product List"></img>
               <span className="item-text">Ecommerce</span>
             </button>
             <ul>
