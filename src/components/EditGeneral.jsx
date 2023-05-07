@@ -343,11 +343,7 @@ const EditGeneral = ({ onSubmit }) => {
                         value={values.variantPrice1}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={
-                          errors.variantPrice1 && touched.variantPrice1
-                            ? "error"
-                            : ""
-                        }
+                        className="form-control"
                         style={
                           errors.variantPrice1 && touched.variantPrice1
                             ? { borderColor: "red" }
@@ -374,11 +370,7 @@ const EditGeneral = ({ onSubmit }) => {
                         value={values.variantStock1}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={
-                          errors.variantStock1 && touched.variantStock1
-                            ? "error"
-                            : ""
-                        }
+                        className="form-control"
                         style={
                           errors.variantStock1 && touched.variantStock1
                             ? { borderColor: "red" }
@@ -421,9 +413,7 @@ const EditGeneral = ({ onSubmit }) => {
                         value={values.variant2}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={
-                          errors.variant2 && touched.variant2 ? "error" : ""
-                        }
+                        className="form-control"
                         style={
                           errors.variant2 && touched.variant2
                             ? { borderColor: "red" }
@@ -449,11 +439,7 @@ const EditGeneral = ({ onSubmit }) => {
                         value={values.variantPrice2}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={
-                          errors.variantPrice2 && touched.variantPrice2
-                            ? "error"
-                            : ""
-                        }
+                        className="form-control"
                         style={
                           errors.variantPrice2 && touched.variantPrice2
                             ? { borderColor: "red" }
@@ -480,11 +466,7 @@ const EditGeneral = ({ onSubmit }) => {
                         value={values.variantStock2}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        classNameName={
-                          errors.variantStock2 && touched.variantStock2
-                            ? "error"
-                            : ""
-                        }
+                        className="form-control"
                         style={
                           errors.variantStock2 && touched.variantStock2
                             ? { borderColor: "red" }
