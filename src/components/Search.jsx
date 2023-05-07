@@ -22,7 +22,7 @@ const Search = ({ setResults }) => {
   };
   useEffect(() => {
     setResults(products);
-  }, [products]);
+  }, [products, setResults]);
 
   const addProductbtn = (e) => {
     e.preventDefault();
