@@ -1,18 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({ results }) => {
-  const [newResults, setNewResults] = useState(results);
-
-  const handleDelete = (id) => {
-    const filteredResults = newResults.filter((item, index) => index !== id);
-    setNewResults(filteredResults);
-    console.log(filteredResults);
-  };
-
+const Table = ({ results, deleteRow }) => {
   return (
     <>
-      {results.length === 0 ? (
+      {results && results.length === 0 ? (
         <h1 style={{ textAlign: "center" }}>No Records Found</h1>
       ) : (
         <table className="table">
@@ -227,10 +219,12 @@ const Table = ({ results }) => {
                   <td>
                     <div className="media align-items-center">
                       <div className="product_thumb">
-                        <img
-                          src={item.variation[0].productImage}
-                          alt={item.productName}
-                        />
+                        {item.variation && item.variation.length > 0 && (
+                          <img
+                            src={item.variation[0].productImage}
+                            alt={item.productName}
+                          />
+                        )}
                       </div>
                       <div className="media-body product_des">
                         <h6 className="product_name">{item.productName}</h6>
@@ -238,9 +232,14 @@ const Table = ({ results }) => {
                     </div>
                   </td>
                   <td className="text_primary">{item.category}</td>
+                  {item.variation && item.variation.length > 0 && (
+                    <td>$ {item.variation[0].price}</td>
+                  )}
+                  {item.variation && item.variation.length > 0 && (
+                    <td>$ {item.variation[0].stock}</td>
+                  )}
 
-                  <td>$ {item.variation[0].price}</td>
-                  <td>{item.variation[0].stock}</td>
+                  {/* <td>{item.variation[0].stock}</td> */}
                   <td>{item.status}</td>
                   <td className="actions">
                     <div className="dropdown dropdown_wrapper ">
@@ -255,11 +254,14 @@ const Table = ({ results }) => {
                         />
                       </button>
                       <div className="dropdown-menu dropdown-menu-right  ">
-                        <Link className="dropdown-item" to={`/editproduct`}>
+                        <Link
+                          className="dropdown-item"
+                          to={`/editproduct/${item.id}`}
+                        >
                           Edit Product
                         </Link>
                         <button
-                          onClick={() => handleDelete(id)}
+                          onClick={() => deleteRow(id)}
                           type="button"
                           className="dropdown-item"
                         >

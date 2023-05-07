@@ -1,26 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import sampleData from "../data";
+import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "../../src/assets/images/icons/magnifying-glass.png";
+import { useSelector } from "react-redux";
+
 const Search = ({ setResults }) => {
+  let navigate = useNavigate();
   const [input, setInput] = useState("");
 
+  const products = useSelector((state) => state.login.products);
+
+  // console.log(products[0]);
   const handleChange = (value) => {
     setInput(value);
-    // const filteredData = sampleData.filter((item) =>
-    //   item.productName.toLowerCase().includes(value.toLowerCase())
-    // );
     const filteredData = input
-      ? sampleData.filter((item) =>
+      ? products.filter((item) =>
           item.productName.toLowerCase().includes(value.toLowerCase())
         )
-      : sampleData;
+      : products;
 
     setResults(filteredData);
   };
   useEffect(() => {
-    setResults(sampleData);
-  }, [setResults]);
+    setResults(products);
+  }, [products]);
+
+  const addProductbtn = (e) => {
+    e.preventDefault();
+    navigate("/addproduct");
+  };
+
   return (
     <div className="filter_wrapper">
       <div className="filet_left_content">
@@ -48,9 +56,12 @@ const Search = ({ setResults }) => {
         </select>
       </div>
       <div className="filter_btn_wrapper">
-        <Link to={"/addproduct"} className="btn theme-btn-primary theme-btn">
+        <button
+          onClick={addProductbtn}
+          className="btn theme-btn-primary theme-btn"
+        >
           Add Product
-        </Link>
+        </button>
       </div>
     </div>
   );

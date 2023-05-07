@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EditHeading = ({ title }) => {
+const EditHeading = ({ title, onSubmit }) => {
   return (
     <>
       <div className="filter_wrapper  d-block d-sm-none">
@@ -34,7 +34,11 @@ const EditHeading = ({ title }) => {
               >
                 Discard
               </Link>
-              <button type="submit" className="theme-btn theme-btn-primary">
+              <button
+                onClick={onSubmit}
+                type="submit"
+                className="theme-btn theme-btn-primary"
+              >
                 Save
               </button>
             </div>

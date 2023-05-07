@@ -4,23 +4,31 @@ import { useFormik } from "formik";
 import { signupSchema } from "../../schemas";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signupUser } from "../../redux/signup/signupUser";
+import { addUser } from "../../actions/userAction";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmit = async (values, actions) => {
-    console.log(values);
-    console.log(actions);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const onSubmit = async (values, { setSubmitting }) => {
+    // console.log(values);
+    // console.log(actions);
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    dispatch(signupUser(values));
-    localStorage.setItem("userData", JSON.stringify(values));
-    navigate("/login");
-    const savedSignupData = JSON.parse(localStorage.getItem("userData"));
-    console.log(savedSignupData);
-    actions.resetForm();
+    // dispatch(signupUser(values));
+    // localStorage.setItem("userData", JSON.stringify(values));
+    // navigate("/login");
+    // const savedSignupData = JSON.parse(localStorage.getItem("userData"));
+    // console.log(savedSignupData);
+    // actions.resetForm();
+
+    setTimeout(() => {
+      dispatch(addUser(values));
+      localStorage.setItem("signupEmail", values.email);
+      localStorage.setItem("signupPassword", values.password);
+      navigate("/login");
+      setSubmitting(false);
+    }, 400);
   };
 
   const {

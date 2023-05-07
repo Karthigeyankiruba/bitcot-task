@@ -2,11 +2,8 @@ import React from "react";
 import { productVariationSchema } from "../schemas";
 import { useFormik } from "formik";
 
-const EditVariants = () => {
-  const onSubmit = async (values, actions) => {
-    console.log(values);
-  };
-  const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
+const EditVariants = ({ onSubmit }) => {
+  const { values, handleChange, handleSubmit, handleBlur, errors, touched } =
     useFormik({
       initialValues: {
         variant1: "",
@@ -50,9 +47,7 @@ const EditVariants = () => {
                       value={values.variant1}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className={
-                        errors.variant1 && touched.variant1 ? "error" : ""
-                      }
+                      className="form-control"
                       style={
                         errors.variant1 && touched.variant1
                           ? { borderColor: "red" }

@@ -9,6 +9,9 @@ import Footer from "../../components/Footer";
 
 const Home = () => {
   const [results, setResults] = useState([]);
+  const handleDeleteRow = (targetId) => {
+    setResults(results.filter((_, id) => id !== targetId));
+  };
   return (
     <>
       <Topbar />
@@ -24,7 +27,7 @@ const Home = () => {
                 <div class="card-body">
                   <Search setResults={setResults} />
                   <div class="app_table table-responsive">
-                    <Table results={results} />
+                    <Table results={results} deleteRow={handleDeleteRow} />
                   </div>
                 </div>
               </div>

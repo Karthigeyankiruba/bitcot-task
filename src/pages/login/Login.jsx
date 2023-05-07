@@ -4,31 +4,56 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../../schemas";
 import { useDispatch } from "react-redux";
-import {
-  USER_AUTHENTICATED,
-  checkUserAuth,
-} from "../../redux/login/loginActions";
-import { isAuthenticated } from "../../redux/login/loginReducer";
+
+import { loginUser } from "../../actions/userAction";
+
 const Login = () => {
   const dispatch = useDispatch();
+  // const users = JSON.parse(localStorage.getItem("users")) || [];
+  // const isAuthenticated = useSelector((state, action) => state.isAuthenticated);
 
   let navigate = useNavigate();
-  const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    if (isAuthenticated) {
-      const authAction = dispatch(checkUserAuth(values.email, values.password));
-      if (authAction === USER_AUTHENTICATED) {
-        navigate("/products");
-      } else {
-        navigate("/products");
-      }
-    } else {
-      alert("User is not authenticated");
-    }
-    // actions.resetForm();
-    // console.log(values);
-  };
+  const onSubmit = async (values, { setSubmitting }) => {
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    // if (isAuthenticated) {
+    //   const authAction = dispatch(checkUserAuth(values.email, values.password));
+    //   // console.log(authAction);
+    //   if (authAction === USER_AUTHENTICATED) {
+    //     navigate("/");
+    //   } else {
+    //     navigate("/products");
+    //   }
 
+    // setTimeout(() => {
+    //   const user = users.find(
+    //     (u) => u.email === values.email && u.password === values.password
+    //   );
+    //   if (user) {
+    //     const token = "static_token"; // generate a static token
+    //     dispatch(loginUser(user, token));
+    //     localStorage.setItem("token", token);
+    //     navigate("/products");
+    //   }
+    //   setSubmitting(false);
+    //   alert("User not found");
+    // }, 400);
+
+    const savedEmail = localStorage.getItem("signupEmail");
+    const savedPassword = localStorage.getItem("signupPassword");
+
+    if (savedEmail === values.email && savedPassword === values.password) {
+      const token = "static_token"; // generate a static token
+      dispatch(loginUser(values, token));
+      localStorage.setItem("token", token);
+      navigate("/products");
+    } else if (savedEmail !== values.email) {
+      alert("User not found");
+    } else {
+      alert("Email or password does not match");
+    }
+
+    setSubmitting(false);
+  };
   const {
     values,
     handleChange,
@@ -45,7 +70,6 @@ const Login = () => {
     validationSchema: loginSchema,
     onSubmit,
   });
-
   return (
     <div id="wrapper">
       <div className="page-wrapper auth_wrapper">
