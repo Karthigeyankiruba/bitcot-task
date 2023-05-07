@@ -1,13 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/icons/Path.svg";
 const Sidebar = () => {
-  let navigate = useNavigate();
-  const productList = (e) => {
-    e.preveventDefault();
-    navigate("/products");
-  };
-
   return (
     <aside className="sidebar-wrapper open custom-scrollbar wow fadeInLeft">
       <div className="sidebar-content-wrapper">

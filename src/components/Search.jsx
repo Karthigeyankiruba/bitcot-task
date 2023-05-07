@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchIcon from "../../src/assets/images/icons/magnifying-glass.png";
 import { useSelector } from "react-redux";
 

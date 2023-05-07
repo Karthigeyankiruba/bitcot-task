@@ -42,7 +42,7 @@ const Login = () => {
     const savedPassword = localStorage.getItem("signupPassword");
 
     if (savedEmail === values.email && savedPassword === values.password) {
-      const token = "static_token"; // generate a static token
+      const token = "static_token";
       dispatch(loginUser(values, token));
       localStorage.setItem("token", token);
       navigate("/products");
